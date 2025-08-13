@@ -8,9 +8,9 @@ public class PerfectNumber {
         Scanner inputScan = new Scanner(System.in);
         System.out.println("Enter number");
         String limitString = inputScan.nextLine();
+        try {
         int limit = Integer.parseInt(limitString);
         ArrayList<Integer> perfectnumbers = new ArrayList<>();
-
         for (int i = 6; i <= limit; i++) { // loops all numbers from 6 to limit
             int sum = 0; 
 
@@ -27,6 +27,9 @@ public class PerfectNumber {
         }
         inputScan.close();
         System.err.println(perfectnumbers);
+    } catch (NumberFormatException e ) {
+        System.err.println("Input must be an integer");
+    }
 
     }
 }
