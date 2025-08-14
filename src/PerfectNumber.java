@@ -9,27 +9,27 @@ public class PerfectNumber {
         System.out.println("Enter number");
         String limitString = inputScan.nextLine();
         try {
-        int limit = Integer.parseInt(limitString);
-        ArrayList<Integer> perfectnumbers = new ArrayList<>();
-        for (int i = 6; i <= limit; i++) { // loops all numbers from 6 to limit
-            int sum = 0; 
+            long limit = Long.parseLong(limitString);
+            ArrayList<Long> perfectnumbers = new ArrayList<>();
+            for (long i = 6; i <= limit; i += 2) { // loops all even numbers from 6 to limit
+                int sum = 0; 
 
-            for (int j = 1; j <= i - 1; j++) { 
-                if (i % j == 0) { // adds divisors excluding limit
-                    sum += j;
+                for (int j = 1; j <= i - 1; j++) { 
+                    if (i % j == 0) { // adds divisors excluding limitasda
+                        sum += j;
+                    }
                 }
-            }
 
-            if (sum == i) {
-                perfectnumbers.add(i);
+                if (sum == i) {
+                    perfectnumbers.add(i);
+                }
+                
             }
-            
+            inputScan.close();
+            System.err.println(perfectnumbers);
+        } catch (NumberFormatException e ) {
+            System.err.println("Input must be an integer");
         }
-        inputScan.close();
-        System.err.println(perfectnumbers);
-    } catch (NumberFormatException e ) {
-        System.err.println("Input must be an integer");
-    }
 
     }
 }
